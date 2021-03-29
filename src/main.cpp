@@ -16,6 +16,7 @@ int main()
 		int op;
 		int contGera=0;
 		int contILS=0;
+		int contVND=0;
 		//PESSOA
 			string nome;
 			int cpf;
@@ -251,11 +252,10 @@ int main()
 						fscanf(prof2,"%d",&DisciplinaID);
 						fscanf(prof2,"%s",linha);
 						DisciplinaNOME=linha;
-						fscanf(prof1,"%f",&ProfessorPeso);
 						c=Curso(CursoNOME, CursoID);
 						w.cadastrarCurso(c);
 						d=Disciplina(DisciplinaID, DisciplinaNOME, c);
-						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d, ProfessorPeso);
+						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d);
 						w.cadastrarProfessor(p);
 					}
 				}
@@ -274,11 +274,10 @@ int main()
 						fscanf(prof3,"%d",&DisciplinaID);
 						fscanf(prof3,"%s",linha);
 						DisciplinaNOME=linha;
-						fscanf(prof1,"%f",&ProfessorPeso);
 						c=Curso(CursoNOME, CursoID);
 						w.cadastrarCurso(c);
 						d=Disciplina(DisciplinaID, DisciplinaNOME, c);
-						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d, ProfessorPeso);
+						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d);
 						w.cadastrarProfessor(p);
 					}
 				}
@@ -293,6 +292,23 @@ int main()
 					{
 						w.ILS();
 						contILS++;
+					}
+					else
+					{
+						cout<<"Melhoria já realizada!"<<endl;
+					}
+				}
+				else
+					cout<<"O horário precisa ser gerado primeiro!"<<endl;
+			}
+			else if(op==10)
+			{
+				if(contGera==1)
+				{
+					if(contVND==0)
+					{
+						w.VND();
+						contVND++;
 					}
 					else
 					{

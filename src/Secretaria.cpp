@@ -246,7 +246,7 @@ using namespace std;
 							{	
 								aux_hora_prof2 = rand()%10;
 							}
-							if(vetProfessores[i] == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
+							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
 							{
 								peso_prof2 = vetProfessores[i].getPeso();
 							}
@@ -273,7 +273,7 @@ using namespace std;
 						}
 						for(int i =0;i<10;i++)
 						{
-							if(vetProfessores[i]==aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso do outro prof no mesmo dia e trocar eles
+							if(vetProfessores[i].getNome()==aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso do outro prof no mesmo dia e trocar eles
 							{
 								peso_prof2 = vetProfessores[i].getPeso();
 							}
@@ -282,12 +282,14 @@ using namespace std;
 						{
 							prof_update = aux.horaDiaria[aux_dia2][aux_hora2];
 							aux.horaDiaria[aux_dia][aux_hora_prof2] = prof_update; // professor do mesmo dia no horario diferente atualizado com o professor de peso igual
+							cont_salas++;
 						}
 					}
-					cont_salas++;
+					
 				}
 
 			}	
+			aux.print();
 		}
 		void Secretaria::cadastrarProfessor(Professor p)
 		{  

@@ -19,7 +19,7 @@ using namespace std;
 				
 					Professor();
 					Professor(string nome, int cpf, int id, Disciplina d);
-					Professor(strin nome, int cpf, int id, Disciplina d, float peso);
+					Professor(string nome, int cpf, int id, Disciplina d, float peso);
 				
 					void setD(Disciplina d);
 					Disciplina getD();
