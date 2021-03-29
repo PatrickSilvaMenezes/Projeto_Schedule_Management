@@ -210,7 +210,7 @@ using namespace std;
 		void Secretaria::VND()
 		{
 			int cont_salas = 0;
-			int cont_prof = 0;
+			//int cont_prof = 0;
 			int aux_hora = 0;
 			int aux_dia = 0;
 			int aux_hora_prof2 = 0;
@@ -231,30 +231,28 @@ using namespace std;
 					aux_hora = rand()%10;
 					aux_dia = rand()%5;
 				}
-				while(cont_prof<2)
-				{
+				//while(cont_prof<2)
+				//{
 					for(int i=0;i<10;i++)
 					{
 						if(vetProfessores[i].getNome()==aux.horaDiaria[aux_dia][aux_hora])
 						{
-							peso_prof1 = vetProfessores[i].getPeso();
-						}
-						else
-						{
-							aux_hora_prof2 = rand()%10;
-							while(aux.horaDiaria[aux_dia][aux_hora2]=="-")// achar o horario no mesmo dia onde tem outro professor
-							{	
-								aux_hora_prof2 = rand()%10;
-							}
-							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
-							{
-								peso_prof2 = vetProfessores[i].getPeso();
-							}
-
+							peso_prof1 = vetProfessores[i].getPeso();// peso do professor  1 do dia
 						}
 					}
-					cont_prof++;
-				}
+					
+						aux_hora_prof2 = rand()%10;
+						while(aux.horaDiaria[aux_dia][aux_hora2]=="-")// achar o horario no mesmo dia onde tem outro professor
+						{	
+							aux_hora_prof2 = rand()%10;
+						}
+						for (int i = 0; i < 10; ++i)
+						{
+							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
+							{
+								peso_prof2 = vetProfessores[i].getPeso();// peso do professor 2 do dia
+							}
+						}
 				
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico
 				{
