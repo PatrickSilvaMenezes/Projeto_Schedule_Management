@@ -16,7 +16,7 @@ int main()
 		int op;
 		int contGera=0;
 		int contILS=0;
-		//int contVND=0;
+		int contVND=0;
 		//PESSOA
 			string nome;
 			int cpf;
@@ -81,7 +81,7 @@ int main()
 		x=0;
 		contGera=0;
 		contILS=0;
-		//contVND = 0;
+		contVND = 0;
 		if(q==0)
 		{
 			cout<<"Curso 1"<<endl;
@@ -100,7 +100,6 @@ int main()
 		
 		while(x==0)
 		{
-			
 			cout<< "Digite:"<<endl;
 			cout<< "[1] Para cadastrar um professor"<<endl;
 			cout<< "[2] Para cadastrar uma Sala"<<endl;
@@ -124,7 +123,13 @@ int main()
 				Secretaria::contHorarios=0;
 				contGera=0;
 				contILS=0;
+				contVND=0;
 				fclose(arq);
+				if(q==2)
+				{
+					printf("[------Saindo do quadro de horários!------]\n");
+					break;	
+				}
 			}
 			else if(op==1)
 			{
@@ -282,8 +287,6 @@ int main()
 						w.cadastrarProfessor(p);
 					}
 				}
-
-				
 			}
 			else if(op==9)
 			{
@@ -304,12 +307,12 @@ int main()
 			}
 			else if(op==10)
 			{
-				/*if(contGera==1)
+				if(contGera==1)
 				{
 					if(contVND==0)
-					{*/
+					{
 						w.VND();
-						/*contVND++;
+						contVND++;
 					}
 					else
 					{
@@ -317,16 +320,14 @@ int main()
 					}
 				}
 				else
-					cout<<"O horário precisa ser gerado primeiro!"<<endl;*/
+					cout<<"O horário precisa ser gerado primeiro!"<<endl;
 			}
-		}
-		
-			
+			else
+			{
+				printf("[ERRO]-Opção digitada inválida, tente novamente com uma opção contida no menu!\n");
+			}
+		}		
 	}
-	
-		
-	
-
 
   return 0;
 }

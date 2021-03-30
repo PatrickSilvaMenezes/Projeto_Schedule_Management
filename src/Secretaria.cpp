@@ -303,7 +303,7 @@ using namespace std;
 			}	
 			aux.print(" Implementado VND");
 		}
-		
+
 		void Secretaria::cadastrarProfessor(Professor p)
 		{  
 			if(Secretaria::contProfessores<10)
@@ -419,6 +419,7 @@ using namespace std;
 			for (int i = 0; i < contProfessores; i++)
 			{
 				vetProfessores[i].print();
+				printf("\n");
 			}
 			if(contProfessores==0)
 			{
@@ -432,6 +433,7 @@ using namespace std;
 			for (int i = 0; i < contCursos; i++)
 			{
 				vetCursos[i].print();
+				printf("\n");
 			}
 			if(contCursos==0)
 			{
@@ -445,6 +447,7 @@ using namespace std;
 			for (int i = 0; i < contSalas; i++)
 			{
 				vetSalas[i].print();
+				printf("\n");
 			}
 			if(contSalas==0)
 			{
