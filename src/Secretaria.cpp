@@ -272,15 +272,15 @@ using namespace std;
 					{
 						aux_hora2 = rand()%10;
 						aux_dia2 = rand()%5;
-						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")
-						{
+						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")// busca na vizinhança de um dia e hora de um professor com peso igual ao do professor 1 do 
+						{                                                // respectivo dia que se deseja trocar os professores
 							aux_hora2 = rand()%10;
 							aux_dia2 = rand()%5;
 						}
 						for(int i =0;i<10;i++)
 						{
-							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso do outro prof no mesmo dia e trocar eles
-							{
+							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso
+							{                                                                     // do outro prof no mesmo dia e trocar eles
 								peso_prof2 = vetProfessores[i].getPeso();
 							}
 						}	
