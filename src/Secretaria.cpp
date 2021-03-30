@@ -264,7 +264,7 @@ using namespace std;
 
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico
 				{
-					update_condition = 1; // condiçao de melhora
+					update_condition = 1;
 				}
 				else
 				{
