@@ -209,18 +209,25 @@ using namespace std;
 		}
 		void Secretaria::VND()
 		{
-			int cont_salas = 0;
-			//int cont_prof = 0;
+			int cont_salas = 1;
+		
+			// dia e hora do professor 1 do dia
 			int aux_hora = 0;
 			int aux_dia = 0;
+			// horario do professor do mesmo dia
 			int aux_hora_prof2 = 0;
+			// dia e horario do professor semelhante
 			int aux_hora2 = 0;
 			int aux_dia2 = 0;
+			//variavel para verificar se deve fazer o uso do VND
 			int update_condition = 0;
+			// peso do professor 1 e do professor 2 
 			float peso_prof1 = 0.0;
 			float peso_prof2 = 0.0;
+			// nome do professor com grau de proximidade maior que sera trocado
 			string prof_update;
 		
+			
 			while(cont_salas!=20)
 			{
 				aux_hora = rand()%10;
@@ -231,8 +238,7 @@ using namespace std;
 					aux_hora = rand()%10;
 					aux_dia = rand()%5;
 				}
-				//while(cont_prof<2)
-				//{
+			
 					for(int i=0;i<10;i++)
 					{
 						if(vetProfessores[i].getNome()==aux.horaDiaria[aux_dia][aux_hora])
@@ -240,20 +246,23 @@ using namespace std;
 							peso_prof1 = vetProfessores[i].getPeso();// peso do professor  1 do dia
 						}
 					}
-					
+					//ate aqui ta ok
+
 						aux_hora_prof2 = rand()%10;
-						while(aux.horaDiaria[aux_dia][aux_hora_prof2]=="-")// achar o horario no mesmo dia onde tem outro professor
+						while(aux.horaDiaria[aux_dia][aux_hora_prof2] == "-" && aux_hora_prof2==aux_hora)// achar o horario no mesmo dia onde tem outro professor
 						{	
 							aux_hora_prof2 = rand()%10;
-						}
+						}// ta pegando horario da aula 7 sendo que era para pegar o horario da aula 6
+						
 						for (int i = 0; i < 10; ++i)
 						{
 							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
 							{
 								peso_prof2 = vetProfessores[i].getPeso();// peso do professor 2 do dia
+								
 							}
 						}
-				
+				// a partir daqui ta ok
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico
 				{
 					update_condition = 1; // condiçao de melhora
@@ -264,27 +273,28 @@ using namespace std;
 					{
 						aux_hora2 = rand()%10;
 						aux_dia2 = rand()%5;
-						while(aux.horaDiaria[aux_dia2][aux_hora2]=="-")
+						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")
 						{
 							aux_hora2 = rand()%10;
 							aux_dia2 = rand()%5;
 						}
 						for(int i =0;i<10;i++)
 						{
-							if(vetProfessores[i].getNome()==aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso do outro prof no mesmo dia e trocar eles
+							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso do outro prof no mesmo dia e trocar eles
 							{
 								peso_prof2 = vetProfessores[i].getPeso();
 							}
-						}
-						if(update_condition!=1)
-						{
-							prof_update = aux.horaDiaria[aux_dia2][aux_hora2];
-							aux.horaDiaria[aux_dia][aux_hora_prof2] = prof_update; // professor do mesmo dia no horario diferente atualizado com o professor de peso igual
-							
-						}
+						}	
+					}
+
+					if ( update_condition!= 1)
+					{
+						prof_update = aux.horaDiaria[aux_dia2][aux_hora2];
+						aux.horaDiaria[aux_dia2][aux_hora2]= aux.horaDiaria[aux_dia][aux_hora_prof2];
+						aux.horaDiaria[aux_dia][aux_hora_prof2] = prof_update; // professor do mesmo dia no horario diferente atualizado com o professor de peso igual				
 					}
 				}
-        cont_salas++;
+       			cont_salas++;
 			}	
 			aux.print(" Implementado VND");
 		}

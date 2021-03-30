@@ -16,7 +16,7 @@ int main()
 		int op;
 		int contGera=0;
 		int contILS=0;
-		int contVND=0;
+		//int contVND=0;
 		//PESSOA
 			string nome;
 			int cpf;
@@ -303,20 +303,20 @@ int main()
 			}
 			else if(op==10)
 			{
-				if(contGera==1)
-				{
-					if(contVND==0)
-					{
+				//if(contGera==1)
+				//{
+				//	if(contVND==0)
+				//	{
 						w.VND();
-						contVND++;
-					}
-					else
-					{
-						cout<<"Melhoria já realizada!"<<endl;
-					}
-				}
-				else
-					cout<<"O horário precisa ser gerado primeiro!"<<endl;
+				//		contVND++;
+				//	}
+				//	else
+				//	{
+				//		cout<<"Melhoria já realizada!"<<endl;
+				//	}
+				//}
+				//else
+				//	cout<<"O horário precisa ser gerado primeiro!"<<endl;
 			}
 		}
 		
