@@ -81,6 +81,7 @@ int main()
 		x=0;
 		contGera=0;
 		contILS=0;
+		//contVND = 0;
 		if(q==0)
 		{
 			cout<<"Curso 1"<<endl;
@@ -295,7 +296,7 @@ int main()
 					}
 					else
 					{
-						cout<<"Melhoria já realizada!"<<endl;
+						cout<<"Melhoria  ILS já realizada!"<<endl;
 					}
 				}
 				else
@@ -303,20 +304,20 @@ int main()
 			}
 			else if(op==10)
 			{
-				//if(contGera==1)
-				//{
-				//	if(contVND==0)
-				//	{
+				/*if(contGera==1)
+				{
+					if(contVND==0)
+					{*/
 						w.VND();
-				//		contVND++;
-				//	}
-				//	else
-				//	{
-				//		cout<<"Melhoria já realizada!"<<endl;
-				//	}
-				//}
-				//else
-				//	cout<<"O horário precisa ser gerado primeiro!"<<endl;
+						/*contVND++;
+					}
+					else
+					{
+						cout<<"Melhoria VND já realizada!"<<endl;
+					}
+				}
+				else
+					cout<<"O horário precisa ser gerado primeiro!"<<endl;*/
 			}
 		}
 		
