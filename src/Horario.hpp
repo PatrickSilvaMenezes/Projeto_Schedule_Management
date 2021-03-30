@@ -14,6 +14,7 @@ using namespace std;
 				
 				void setHoraDiaria(string horaDiaria[]);
 				void print();
+        void print(string texto);
 				
 		};
 #endif

@@ -242,7 +242,7 @@ using namespace std;
 					}
 					
 						aux_hora_prof2 = rand()%10;
-						while(aux.horaDiaria[aux_dia][aux_hora2]=="-")// achar o horario no mesmo dia onde tem outro professor
+						while(aux.horaDiaria[aux_dia][aux_hora_prof2]=="-")// achar o horario no mesmo dia onde tem outro professor
 						{	
 							aux_hora_prof2 = rand()%10;
 						}
@@ -280,14 +280,13 @@ using namespace std;
 						{
 							prof_update = aux.horaDiaria[aux_dia2][aux_hora2];
 							aux.horaDiaria[aux_dia][aux_hora_prof2] = prof_update; // professor do mesmo dia no horario diferente atualizado com o professor de peso igual
-							cont_salas++;
+							
 						}
 					}
-					
 				}
-
+        cont_salas++;
 			}	
-			aux.print();
+			aux.print(" Implementado VND");
 		}
 		void Secretaria::cadastrarProfessor(Professor p)
 		{  
