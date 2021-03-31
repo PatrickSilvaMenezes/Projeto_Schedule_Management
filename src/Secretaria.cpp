@@ -209,6 +209,7 @@ using namespace std;
 		}
 		void Secretaria::VND()
 		{
+			int regula=0;
 			int cont_salas = 1;
 			int cont_update = 0;
 			// dia e hora do professor 1 do dia
@@ -300,6 +301,20 @@ using namespace std;
 					}
 				}
        			cont_salas++;//conto tanto se tiver igual os pesos quanto depois de corrigir os pesos
+			}
+			for(int i=0; i<5; i++)
+			{
+					regula=0;
+					for(int j=0; j<10; j++)
+					{
+						if(aux.horaDiaria[i][j]!="-")
+						{
+							if(regula==0)
+								regula=j;
+						}
+					}
+					aux.horaDiaria[i][regula-1]=aux.horaDiaria[i][regula];
+					aux.horaDiaria[i][regula]="-";
 			}	
 			aux.print(" Implementado VND");
 		}
