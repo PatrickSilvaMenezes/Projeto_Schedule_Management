@@ -207,9 +207,9 @@ using namespace std;
 			}
 			aux.print("Implementado ILS");
 		}
-		void Secretaria::VND()
+		void Secretaria::VND() //Variable Neighborhood Search
 		{
-			int regula=0;
+			//int regula=0;
 			int cont_salas = 1;
 			int cont_update = 0;
 			// dia e hora do professor 1 do dia
@@ -225,8 +225,9 @@ using namespace std;
 			// peso do professor 1 e do professor 2 
 			float peso_prof1 = 0.0;
 			float peso_prof2 = 0.0;
-			// nome do professor com grau de proximidade maior que sera trocado  com a aula do professor 2 do mesmo dia com 
-			// grau de proximidade diferente 
+			// nome do professor com grau de proximidade diferente que sera trocado  com a aula do professor 2 do mesmo dia com 
+			// grau de proximidade igual 
+			float peso_prof_update = 0.0;
 			string prof_update;
 		
 			
@@ -243,7 +244,7 @@ using namespace std;
 			
 				for(int i=0;i<10;i++)
 				{
-					if(vetProfessores[i].getNome()==aux.horaDiaria[aux_dia][aux_hora])
+					if(vetProfessores[i].getNome()== aux.horaDiaria[aux_dia][aux_hora])
 					{
 						peso_prof1 = vetProfessores[i].getPeso();// peso do professor  1 do dia
 					}
@@ -263,29 +264,29 @@ using namespace std;
 					}
 				}
 
-				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico
+				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico que deve ser trocada por uma de eixo diferente
 				{
 					update_condition = 1;
-				}
-				else
-				{
-					while(peso_prof1!=peso_prof2)
+					
+					while(peso_prof1==peso_prof_update)
 					{
 						aux_hora2 = rand()%10;
 						aux_dia2 = rand()%5;
-						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")// busca na vizinhança de um dia e hora de um professor com peso igual ao do professor 1 do 
+						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")// busca na vizinhança de um dia e hora de um professor com peso diferente ao do professor 1 do 
 						{                                                // respectivo dia que se deseja trocar os professores
 							aux_hora2 = rand()%10;
 							aux_dia2 = rand()%5;
 						}
 						for(int i =0;i<10;i++)
 						{
-							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja igual ao peso
+							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja diferente ao peso
 							{                                                                     // do outro prof no mesmo dia e trocar eles
-								peso_prof2 = vetProfessores[i].getPeso();
+								peso_prof_update = vetProfessores[i].getPeso();
 							}
 						}	
+						
 					}
+				}
 					for(int i=0;i<10;i++)
 					{
 						if(aux.horaDiaria[aux_dia][i]!="-")
@@ -293,31 +294,19 @@ using namespace std;
 							cont_update++;
 						}
 					}	
-					if ( update_condition!= 1 && cont_update<3)//condiçao para trocar com a vizinhança e limite maximo de 3 aulas por dia
+					if ( update_condition == 1 && cont_update<3)//condiçao para trocar com a vizinhança e limite maximo de 3 aulas por dia
 					{
 						prof_update = aux.horaDiaria[aux_dia2][aux_hora2];
 						aux.horaDiaria[aux_dia2][aux_hora2]= aux.horaDiaria[aux_dia][aux_hora_prof2];
 						aux.horaDiaria[aux_dia][aux_hora_prof2] = prof_update; // professor do mesmo dia no horario diferente atualizado com o professor de peso igual				
 					}
-				}
-       			cont_salas++;//conto tanto se tiver igual os pesos quanto depois de corrigir os pesos
+					cont_salas++;//conto tanto se tiver diferente os pesos quanto depois de corrigir os pesos
 			}
-			for(int i=0; i<5; i++)
-			{
-					regula=0;
-					for(int j=0; j<10; j++)
-					{
-						if(aux.horaDiaria[i][j]!="-")
-						{
-							if(regula==0)
-								regula=j;
-						}
-					}
-					aux.horaDiaria[i][regula-1]=aux.horaDiaria[i][regula];
-					aux.horaDiaria[i][regula]="-";
-			}	
+
 			aux.print(" Implementado VND");
 		}
+			
+			
 
 		void Secretaria::cadastrarProfessor(Professor p)
 		{  
