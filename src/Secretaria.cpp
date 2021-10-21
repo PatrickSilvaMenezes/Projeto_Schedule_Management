@@ -223,11 +223,11 @@ using namespace std;
 			//variavel para verificar se deve fazer o uso do VND
 			int update_condition = 0;
 			// peso do professor 1 e do professor 2 
-			float peso_prof1 = 0.0;
-			float peso_prof2 = 0.0;
+			float peso_prof1;
+			float peso_prof2;
 			// nome do professor com grau de proximidade diferente que sera trocado  com a aula do professor 2 do mesmo dia com 
 			// grau de proximidade igual 
-			float peso_prof_update = 0.0;
+			float peso_prof_update;
 			string prof_update;
 		
 			
@@ -250,10 +250,20 @@ using namespace std;
 					}
 				}
 
+				cout << "dia professor 1: "<< aux_dia <<endl;
+				cout << "hora professor 1: "<< aux_hora<<endl;
+				cout << "peso professor 1: " <<peso_prof1 <<endl;
+				cout << "---------------------------------" << endl;
+
 				aux_hora_prof2 = rand()%10;
-				while(aux.horaDiaria[aux_dia][aux_hora_prof2] == "-" && aux_hora_prof2==aux_hora)// achar o horario no mesmo dia onde tem o segundo professor
+				
+
+			    
+				while(aux.horaDiaria[aux_dia][aux_hora_prof2] == "-" && (aux_hora == aux_hora_prof2))// achar o horario no mesmo dia onde tem o segundo professor
 				{	
-					aux_hora_prof2 = rand()%10;
+					
+						aux_hora_prof2 = rand()%10;
+					
 				}
 					
 				for (int i = 0; i < 10; ++i)
@@ -263,29 +273,34 @@ using namespace std;
 						peso_prof2 = vetProfessores[i].getPeso();// peso do professor 2 do dia			
 					}
 				}
+				cout << "dia professor 2: "<< aux_dia <<endl;
+				cout << "hora professor 2: "<< aux_hora_prof2<<endl;
+				cout << "peso professor 2: " <<peso_prof2 <<endl;
+				cout << "---------------------------------" << endl;
+
 
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico que deve ser trocada por uma de eixo diferente
 				{
 					update_condition = 1;
-
-					while(peso_prof1==peso_prof_update)
+					while(peso_prof1 == peso_prof_update)
 					{
 						aux_hora2 = rand()%10;
 						aux_dia2 = rand()%5;
-						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-")// busca na vizinhança de um dia e hora de um professor com peso diferente ao do professor 1 do 
+						while(aux.horaDiaria[aux_dia2][aux_hora2] == "-" && (aux_hora2 == aux_hora) && (aux_hora2 == aux_hora_prof2) && (aux_dia2 == aux_dia))// busca na vizinhança de um dia e hora de um professor com peso diferente ao do professor 1 do 
 						{                                                // respectivo dia que se deseja trocar os professores
 							aux_hora2 = rand()%10;
 							aux_dia2 = rand()%5;
-						}
+						}	
 						for(int i =0;i<10;i++)
 						{
 							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja diferente ao peso
 							{                                                                     // do outro prof no mesmo dia e trocar eles
 								peso_prof_update = vetProfessores[i].getPeso();
 							}
-						}		
+						}	
 					}
 				}
+				
 					for(int i=0;i<10;i++)
 					{
 						if(aux.horaDiaria[aux_dia][i]!="-")
