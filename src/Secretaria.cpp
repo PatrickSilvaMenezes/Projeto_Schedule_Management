@@ -249,7 +249,6 @@ using namespace std;
 						peso_prof1 = vetProfessores[i].getPeso();// peso do professor  1 do dia
 					}
 				}
-
 				aux_hora_prof2 = rand()%10;
 				while(aux.horaDiaria[aux_dia][aux_hora_prof2] == "-" && aux_hora_prof2==aux_hora)// achar o horario no mesmo dia onde tem o segundo professor
 				{	
@@ -267,7 +266,6 @@ using namespace std;
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico que deve ser trocada por uma de eixo diferente
 				{
 					update_condition = 1;
-
 					while(peso_prof1==peso_prof_update)
 					{
 						aux_hora2 = rand()%10;
