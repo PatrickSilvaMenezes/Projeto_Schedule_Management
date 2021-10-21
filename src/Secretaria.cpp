@@ -267,7 +267,7 @@ using namespace std;
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico que deve ser trocada por uma de eixo diferente
 				{
 					update_condition = 1;
-					
+
 					while(peso_prof1==peso_prof_update)
 					{
 						aux_hora2 = rand()%10;
@@ -283,8 +283,7 @@ using namespace std;
 							{                                                                     // do outro prof no mesmo dia e trocar eles
 								peso_prof_update = vetProfessores[i].getPeso();
 							}
-						}	
-						
+						}		
 					}
 				}
 					for(int i=0;i<10;i++)
