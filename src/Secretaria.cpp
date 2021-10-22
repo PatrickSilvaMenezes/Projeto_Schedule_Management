@@ -257,8 +257,6 @@ using namespace std;
 
 				aux_hora_prof2 = rand()%10;
 				
-
-			    
 				while(aux.horaDiaria[aux_dia][aux_hora_prof2] == "-" && (aux_hora == aux_hora_prof2))// achar o horario no mesmo dia onde tem o segundo professor
 				{	
 					
@@ -277,7 +275,6 @@ using namespace std;
 				cout << "hora professor 2: "<< aux_hora_prof2<<endl;
 				cout << "peso professor 2: " <<peso_prof2 <<endl;
 				cout << "---------------------------------" << endl;
-
 
 				if(peso_prof1 == peso_prof2) // materias de eixo parecido ou identico que deve ser trocada por uma de eixo diferente
 				{
