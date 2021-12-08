@@ -23,9 +23,8 @@ using namespace std;
 					int verificaProfessorCadastrado(int cpf);
 					int verificaSalaCadastrada(int idSala);
 					int verificaCursoCadastrado(int idCurso);
-					public:
-					
 				
+					public:
 					
 					static int contCursos;
 					static int contHorarios;
