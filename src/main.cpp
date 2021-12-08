@@ -25,6 +25,7 @@ int main()
 		//SALA
 			int bloco;
 			int idSala;
+			string nomeProf;
 		//CURSO
 			string nomeCurso;
 			int idCurso;
@@ -161,7 +162,8 @@ int main()
 				cin>>idSala;
 				cout<<"Digite o bloco em que a sala se encontra"<<endl;
 				cin>>bloco;
-				s=Sala(idSala, bloco);
+				nomeProf="-";
+				s=Sala(idSala, bloco, nomeProf);
 				w.cadastrarSala(s);
 			}
 			else if(op==3)
@@ -201,7 +203,8 @@ int main()
 			else if(op==8)
 			{
 				int z;
-				
+				nomeProf="-";
+
 				for(int i=0; i<3; i++)
 				{
 					fscanf(arq,"%s", linha);
@@ -219,7 +222,7 @@ int main()
 					fscanf(arq,"%d",&sala[z]);
 					idSala=sala[0];
 					bloco=sala[1];
-					s=Sala(idSala,bloco);
+					s=Sala(idSala,bloco, nomeProf);
 					w.cadastrarSala(s);
 				}
 				if(q==0)

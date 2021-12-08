@@ -74,6 +74,8 @@ using namespace std;
 			int cont2=0;
 			int random=0;
 			string vetHorarios[5][10];
+			//int randomSala;
+
 
 			for(int i=0; i<5; i++)
 			{
@@ -82,7 +84,8 @@ using namespace std;
 					vetHorarios[i][j]="-";
 				}
 			}
-				
+
+		
 			if((Secretaria::contProfessores<10) || (Secretaria::contSalas<20) || (Secretaria::contCursos<3))
 			{
 				cout<<"Você deve preencher o cadastro dos professores, salas e cursos antes de gerar!"<<endl;
@@ -107,6 +110,14 @@ using namespace std;
 						aux.horaDiaria[i][j]=vetHorarios[i][j];
 					}
 				}
+				////////////////////////////////////////////////////////////
+
+				for(int i=0; i<10; i++)
+				{
+					vetSalas[i].setNomeProf(vetProfessores[i].getNome());					
+					
+				}
+				////////////////////////////////////////////////////////////////
 				aux.print();
 			}
 		}

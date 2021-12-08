@@ -10,11 +10,12 @@ using namespace std;
 				
 				int idSala;
 				int bloco;
+				string nomeProf;
 				
 				public:
 				
 				Sala();
-				Sala(int idSala, int bloco);
+				Sala(int idSala, int bloco, string nomeProf);
 				
 				void setIdSala(int idSala);
 				int getIdSala();
@@ -23,6 +24,9 @@ using namespace std;
 				int getBloco();
 				
 				void print();
+
+				void setNomeProf(string nomeProf);
+				string getNomeProf();
 		};
 #endif
 			
