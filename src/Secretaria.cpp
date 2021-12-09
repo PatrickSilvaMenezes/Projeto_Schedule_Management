@@ -209,7 +209,7 @@ using namespace std;
 			float peso_prof_update;
 			string prof_update;
 			//teste
-			int teste;
+			//int teste;
 		
 			
 			while(cont_salas!=20)
@@ -233,17 +233,17 @@ using namespace std;
 					if(vetProfessores[i].getNome()== aux.horaDiaria[aux_dia][aux_hora])
 					{
 						peso_prof1 = vetProfessores[i].getPeso();// peso do professor  1 do dia
-						teste=i;
+						//teste=i;
 					}
 				}
 
 				//PEGA O PROFESSOR DAQUELE HORÁRIO ALEATÓRIO NÃO VAZIO E SALVA SEU PESO
 
-				cout << "nome professor 1: "<<vetProfessores[teste].getNome()<<endl;
+			/*	cout << "nome professor 1: "<<vetProfessores[teste].getNome()<<endl;
 				cout << "dia professor 1: "<< aux_dia <<endl;
 				cout << "hora professor 1: "<< aux_hora<<endl;
 				cout << "peso professor 1: " <<peso_prof1 <<endl;
-				cout << "                           " << endl;
+				cout << "                           " << endl;*/
 
 				aux_hora_prof2 = rand()%10;
 				
@@ -259,17 +259,17 @@ using namespace std;
 					if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia][aux_hora_prof2])//prof do mesmo dia em horario diferente
 					{
 						peso_prof2 = vetProfessores[i].getPeso();// peso do professor 2 do dia
-						teste=i;			
+						//teste=i;			
 					}
 				}
 
 				//PEGA OUTRO PROFESSOR, NO MESMO DIA E SALVA SEU PESO
 
-				cout << "nome professor 2: "<<vetProfessores[teste].getNome()<<endl;
+				/*cout << "nome professor 2: "<<vetProfessores[teste].getNome()<<endl;
 				cout << "dia professor 2: "<< aux_dia <<endl;
 				cout << "hora professor 2: "<< aux_hora_prof2<<endl;
 				cout << "peso professor 2: " <<peso_prof2 <<endl;
-				cout << "---------------------------------" << endl;
+				cout << "---------------------------------" << endl;*/
 
 				peso_prof_update=peso_prof2;
 
@@ -290,8 +290,8 @@ using namespace std;
 							if(vetProfessores[i].getNome() == aux.horaDiaria[aux_dia2][aux_hora2])// achar um prof aleatorio ate que o peso dele seja diferente ao peso
 							{                                                                     // do outro prof no mesmo dia e trocar eles
 								peso_prof_update = vetProfessores[i].getPeso();
-								cout<<"DIA NOVO:"<<aux_dia2<<endl;
-								cout<<"HORA NOVA:"<<aux_hora2<<endl;
+								//cout<<"DIA NOVO:"<<aux_dia2<<endl;
+								//cout<<"HORA NOVA:"<<aux_hora2<<endl;
 							}
 						}	
 					}
@@ -307,7 +307,7 @@ using namespace std;
 						}
 					}
 
-					cout<<"CONT: "<<cont_update<<endl;
+					//cout<<"CONT: "<<cont_update<<endl;
 
 					if (update_condition == 1 && cont_update<4)//condiçao para trocar com a vizinhança e limite maximo de 3 aulas por dia
 					{
