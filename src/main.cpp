@@ -66,7 +66,9 @@ int main()
 			string ProfessorNOME;
 			int ProfessorCPF;
 			int ProfessorID;
-			float ProfessorPeso;
+			float Professor1_Peso;
+			float Professor2_Peso;
+			float Professor3_Peso;
 		//DISCIPLINA
 			int DisciplinaID;
 			string DisciplinaNOME;
@@ -202,6 +204,7 @@ int main()
 			}
 			else if(op==8)
 			{
+				//TODO não está sendo lido os dados dos professores dos outros cursos
 				int z;
 				nomeProf="-";
 
@@ -239,11 +242,11 @@ int main()
 						fscanf(prof1,"%d",&DisciplinaID);
 						fscanf(prof1,"%s",linha);
 						DisciplinaNOME=linha;
-						fscanf(prof1,"%f",&ProfessorPeso);
+						fscanf(prof1,"%f",&Professor1_Peso);
 						c=Curso(CursoNOME, CursoID);
 						w.cadastrarCurso(c);
 						d=Disciplina(DisciplinaID, DisciplinaNOME, c);
-						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d, ProfessorPeso);
+						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d, Professor1_Peso);
 						w.cadastrarProfessor(p);
 					}
 				}
@@ -261,10 +264,11 @@ int main()
 						fscanf(prof2,"%d",&DisciplinaID);
 						fscanf(prof2,"%s",linha);
 						DisciplinaNOME=linha;
+						fscanf(prof1,"%f",&Professor2_Peso);
 						c=Curso(CursoNOME, CursoID);
 						w.cadastrarCurso(c);
 						d=Disciplina(DisciplinaID, DisciplinaNOME, c);
-						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d);
+						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d, Professor2_Peso);
 						w.cadastrarProfessor(p);
 					}
 				}
@@ -283,10 +287,11 @@ int main()
 						fscanf(prof3,"%d",&DisciplinaID);
 						fscanf(prof3,"%s",linha);
 						DisciplinaNOME=linha;
+						fscanf(prof1,"%f",&Professor3_Peso);
 						c=Curso(CursoNOME, CursoID);
 						w.cadastrarCurso(c);
 						d=Disciplina(DisciplinaID, DisciplinaNOME, c);
-						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d);
+						p=Professor(ProfessorNOME, ProfessorCPF, ProfessorID, d,Professor3_Peso);
 						w.cadastrarProfessor(p);
 					}
 				}

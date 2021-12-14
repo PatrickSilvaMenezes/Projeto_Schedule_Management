@@ -1,4 +1,4 @@
-Nestor
+NV
 2
 2
 2
@@ -6,7 +6,7 @@ Nestor
 2
 2
 1.0
-Alberto
+AL
 3
 3
 3
@@ -14,7 +14,7 @@ Alberto
 3
 3
 1.0
-Tiago
+TO
 1
 1
 1
@@ -22,7 +22,7 @@ Tiago
 1
 1
 1.0
-Emerson
+EC
 4
 4
 4
@@ -30,7 +30,7 @@ Emerson
 4
 4
 2.0
-Rafael
+RS
 5
 5
 5
@@ -38,7 +38,7 @@ Rafael
 5
 5
 2.0
-André
+AC
 6
 6
 6
@@ -46,7 +46,7 @@ André
 6
 6
 2.0
-Isabel
+MIV
 7
 7
 7
@@ -54,7 +54,7 @@ Isabel
 7
 7
 3.0
-Tamara
+TDA
 9
 9
 9
@@ -62,7 +62,7 @@ Tamara
 9
 9
 2.0
-Michel
+MS
 8
 8
 8
@@ -70,7 +70,7 @@ Michel
 8
 8
 1.0
-Fabio
+FS
 10
 10
 10
